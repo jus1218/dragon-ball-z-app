@@ -1,0 +1,17 @@
+<h1>Dragon Ball Z App</h1>
+<hr />
+
+<section class="row">
+  <div class="col mt-2">
+    <app-add-character
+      (onNewCharacterEmitter)="onNewCharacter($event)"
+    ></app-add-character>
+  </div>
+  <div class="col-md-8 mt-2">
+    <app-dbz-list
+      [characterList]="characters"
+      (deleteCharacterByIdEmitter)="onDeleteCharacter($event)"
+      (onRecoverCharacterEmitter)="onRecoverCharacter($event)"
+    ></app-dbz-list>
+  </div>
+</section>

@@ -1,0 +1,43 @@
+<h4>Listado</h4>
+
+<ul class="list-group">
+  <!-- 'list-group-item-success': isFirst, -->
+  <li
+    class="list-group-item d-flex justify-content-between align-items-center"
+    *ngFor="
+      let character of characterList;
+      let i = index;
+      let isFirst = first;
+      let isLast = last;
+      let esPar = even;
+      let esImpar = odd
+    "
+    [ngClass]="{
+
+      'list-group-item-primary': true
+    }"
+  >
+    <span class="text-primary">{{ character.id }}</span>
+    <span class="mx-2">{{ character.name }}</span>
+    <strong>Poder: </strong>
+    <span class="mx-2">{{ character.power }}</span>
+    <button
+      class="btn btn-danger"
+      (click)="onDeleteCharacterById(character.id)"
+    >
+      X
+    </button>
+  </li>
+</ul>
+<ul class="list-group">
+  <li
+    *ngIf="lastDeleteCharacter"
+    class="list-group-item d-flex justify-content-between align-items-center"
+  >
+    <span class="mx-2">Ultimo Eliminado:</span>
+    <small class="text-danger mx-2">{{ lastDeleteCharacter.name }}</small>
+    <button class="btn btn-success mx-2" (click)="onRecoverCharacter()">
+      Revivir
+    </button>
+  </li>
+</ul>
